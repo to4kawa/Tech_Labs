@@ -9,6 +9,32 @@
 
 ---
 
+## 現在の実装状況（最新）
+
+- ✅ Unit-01〜Unit-12 を実装済み
+- ✅ 各ユニットに以下4ファイルを配置済み
+  - `README.md`
+  - `notebook.ipynb`
+  - `quiz.md`
+  - `rubric.md`
+- ✅ Unit-01 README の優先度順（02→10→04→08→11→05→07→03→09→06→12）に沿って Unit-02〜12 を整備済み
+
+### 実装済みユニット
+- `courses/securityx/modules/unit-01`
+- `courses/securityx/modules/unit-02`
+- `courses/securityx/modules/unit-03`
+- `courses/securityx/modules/unit-04`
+- `courses/securityx/modules/unit-05`
+- `courses/securityx/modules/unit-06`
+- `courses/securityx/modules/unit-07`
+- `courses/securityx/modules/unit-08`
+- `courses/securityx/modules/unit-09`
+- `courses/securityx/modules/unit-10`
+- `courses/securityx/modules/unit-11`
+- `courses/securityx/modules/unit-12`
+
+---
+
 ## 学習の回し方（1ユニット60分）
 
 1. **目的/前提（5分）**
@@ -50,8 +76,7 @@
 
 - コース入口: `courses/securityx/README.md`
 - 全体シラバス: `courses/securityx/syllabus.md`
-- Unit 01（完全実装）: `courses/securityx/modules/unit-01/README.md`
-- Unit 02〜12（雛形）: `courses/securityx/modules/unit-0X/README.md`
+- ユニット一覧: `courses/securityx/modules/unit-01` 〜 `courses/securityx/modules/unit-12`
 - 再利用テンプレート:
   - `courses/securityx/templates/unit-template.md`
   - `courses/securityx/templates/incident-notes-template.md`
@@ -59,8 +84,8 @@
 
 ---
 
-## 次にやること（推奨）
+## 最後の推奨（運用しながら定着するために）
 
-1. Unit 01 を実施して学習ループを体験
-2. Unit 02 以降を優先順に拡張（優先順は Unit 01 README末尾参照）
-3. 学習ログをテンプレートで蓄積して説明力を強化
+1. Unit-02 → Unit-12 を **優先度順** で1周し、各回で証跡4点を必ず保存する。
+2. 各ユニットの `notebook.ipynb` に「実行結果・ログ抜粋・Explain-back」を記録し、説明可能性を高める。
+3. Unit-11（初動演習）と Unit-12（事後レビュー）はセット運用し、月1回の模擬演習で継続改善する。
