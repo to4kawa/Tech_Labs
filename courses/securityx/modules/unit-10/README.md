@@ -29,7 +29,7 @@
 ```bash
 export PROJECT_ID="$(gcloud config get-value project)"
 export METRIC_NAME="u10_iam_policy_change"
-export ALERT_NAME="u10-iam-policy-alert
+export ALERT_NAME="u10-iam-policy-alert"
 ```
 期待結果例: コマンドが正常終了し、指定ファイルまたはログが確認できる。
 
@@ -56,7 +56,20 @@ gcloud logging metrics create "${METRIC_NAME}"   --description="IAM policy chang
 cat > u10_alert.json <<'EOF'
 {
   "displayName": "u10-iam-policy-alert",
-  "conditions": [{"displayName":"policy change","conditionThreshold":{"filter":"metric.type="logging.googleapis.com/user/u10_iam_policy_change" resource.type="global"","comparison":"COMPARISON_GT","thresholdValue":0,"duration":"0s","trigger":{"count":1}}}],
+  "conditions": [
+    {
+      "displayName": "policy change",
+      "conditionThreshold": {
+        "filter": "metric.type=\"logging.googleapis.com/user/u10_iam_policy_change\" AND resource.type=\"global\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0,
+        "duration": "0s",
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
   "combiner": "OR",
   "enabled": true
 }
@@ -67,7 +80,7 @@ gcloud alpha monitoring policies create --policy-from-file=u10_alert.json
 
 ### 4.6 後片付け
 ```bash
-gcloud alpha monitoring policies list --format='value(name,displayName)' | grep "${ALERT_NAME}" | awk '{print $1}' | xargs -r gcloud alpha monitoring policies delete --quiet
+gcloud alpha monitoring policies list --format='value(name,displayName)' | grep -F "${ALERT_NAME}" | awk '{print $1}' | xargs -r -n1 gcloud alpha monitoring policies delete --quiet
 gcloud logging metrics delete "${METRIC_NAME}" --quiet
 ```
 期待結果例: コマンドが正常終了し、指定ファイルまたはログが確認できる。

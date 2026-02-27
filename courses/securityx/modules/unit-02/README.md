@@ -31,7 +31,7 @@ export PROJECT_ID="$(gcloud config get-value project)"
 export REGION="asia-northeast1"
 export TOPIC_NAME="u02-compliance-topic"
 
-echo "PROJECT_ID=${PROJECT_ID}
+echo "PROJECT_ID=${PROJECT_ID}"
 ```
 期待結果例: コマンドが正常終了し、指定ファイルまたはログが確認できる。
 
@@ -49,7 +49,7 @@ cat u02_checklist.md
 ### 4.3 意図的な違反を作る（検出用）
 ```bash
 gcloud pubsub topics create "${TOPIC_NAME}"
-gcloud pubsub topics add-iam-policy-binding "${TOPIC_NAME}"   --member="allUsers" --role="roles/pubsub.viewer
+gcloud pubsub topics add-iam-policy-binding "${TOPIC_NAME}"   --member="allUsers" --role="roles/pubsub.viewer"
 ```
 期待結果例: コマンドが正常終了し、指定ファイルまたはログが確認できる。
 
