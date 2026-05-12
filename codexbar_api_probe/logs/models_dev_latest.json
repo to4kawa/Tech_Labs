@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-05-12T12:38:34.182278+00:00",
+  "success": false,
+  "endpoint": null,
+  "record_count": 0,
+  "sample": [],
+  "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+}
