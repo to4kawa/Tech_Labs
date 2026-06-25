@@ -79,3 +79,9 @@ python train.py --model_type sparse_delta --epochs 5 --lambda_l1 1e-3
 - 本コードは「差分状態を使う再帰深度モデル」の最小検証用です。
 - OpenMythos / Claude Mythos の再現ではありません。
 - 複雑な抽象化を避け、`train.py` 1ファイルで追える構成にしています。
+---
+
+## Product requirements documents
+
+- [通説AI教授 Product Requirements](docs/tsusetsu-ai-professor.md)
+
