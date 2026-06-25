@@ -1,0 +1,248 @@
+# 通説AI教授 Product Requirements
+
+## 1. Product overview
+
+**Product name:** 通説AI教授
+
+通説AI教授 is an educational AI platform for university-level subjects such as law, economics, and sociology. It provides stable explanations of standard doctrines, foundational concepts, institutional purposes, and course-aligned knowledge so students can identify what they should understand first.
+
+The product is designed as a standard knowledge delivery layer, not as a replacement for instructors. Human instructors remain responsible for selecting issues, facilitating critical discussion, evaluating students, and connecting course content to research.
+
+## 2. Goals and non-goals
+
+### Goals
+
+- Present the standard doctrine or baseline concept before minority views, counterarguments, policy debates, or practical operation.
+- Label the status of each explanation clearly, such as doctrine, precedent, majority academic view, minority view, institutional purpose, or instructor-specific interpretation.
+- Adapt explanation depth to the learner's level and course context.
+- Support review, quiz generation, issue spotting, and answer drafting for foundational learning.
+- Help instructors reduce repetitive explanations while preserving their discretion over course policy and interpretation.
+
+### Non-goals
+
+- The product must not replace instructors.
+- The product must not provide legal advice or practical legal judgment.
+- The MVP must not perform fully automated grading or automatically determine official course grades.
+- The product must not encourage examination misconduct or generate unauthorized answers for active assessments.
+
+## 3. Target users
+
+### Primary users
+
+- University students
+- Beginners in a subject area
+- Students preparing for examinations
+
+### Secondary users
+
+- Instructors
+- Teaching assistants
+- Adult learners
+- University curriculum and instructional design staff
+
+## 4. Core concept
+
+通説AI教授 follows five core content principles:
+
+1. Present the standard doctrine first.
+2. Do not mix minority views, opposing views, precedent, policy evaluation, and practical operation without labels.
+3. Label answer components as one of the supported position categories.
+4. Adjust granularity according to student understanding.
+5. Avoid stating that there is a single settled doctrine when the field is genuinely divided.
+
+## 5. Functional requirements
+
+### 5.1 Doctrine explanation
+
+The system must support:
+
+- Term definitions
+- Standard doctrine explanations
+- Rationales supporting the standard doctrine
+- Typical examples
+- Common misunderstandings
+- Examination-focused issue summaries
+
+### 5.2 Position labeling
+
+The system must label content using these categories:
+
+- Standard doctrine
+- Precedent
+- Major academic view
+- Minority view
+- Academic dispute
+- Practical operation
+- Policy evaluation
+- Instructor-specific view
+- Unsettled information
+
+### 5.3 Learning flows
+
+The system must generate and adapt content in these formats:
+
+- Beginner explanation
+- Lecture-note format
+- Question-and-answer format
+- Case-problem format
+- Essay-answer format
+- Wrong-answer diagnosis
+- Understanding checks
+- Recommended next topics
+
+### 5.4 Answer generation policy
+
+Generated answers must follow this order:
+
+1. State the conclusion first.
+2. Provide the reason or source basis.
+3. Explain exceptions, opposing views, or caveats after the baseline explanation.
+4. Explicitly state uncertainty where information is uncertain.
+5. Avoid reducing divided academic debates to a single doctrine.
+
+### 5.5 Source management
+
+The source layer must support:
+
+- Textbooks
+- Casebooks and precedent collections
+- Academic papers
+- Laws and regulations
+- Public materials
+- Lecture syllabi
+- University-designated teaching materials
+- Past examination questions
+- Instructor-reviewed materials
+
+### 5.6 Curriculum alignment
+
+The system must align explanations and generated learning materials with:
+
+- University-specific syllabi
+- Learning objectives for each class session
+- Textbook chapter structure
+- Examination scope
+- Learner level, including first-year undergraduate, advanced undergraduate, and graduate levels
+
+### 5.7 Assessment support
+
+The system should support:
+
+- Quiz generation
+- Essay-question generation
+- Draft-answer feedback
+- Grading-rubric presentation
+- Common deduction-point presentation
+- Model-answer presentation
+- Weakness extraction based on learning history
+
+## 6. Non-functional requirements
+
+### 6.1 Accuracy
+
+- Show sources for generated explanations when available.
+- Avoid mixing current law with obsolete statutes or pre-amendment information.
+- Do not confuse standard doctrine with an individual instructor's view.
+- Do not oversimplify genuine academic disputes.
+
+### 6.2 Transparency
+
+- Display the source materials behind an answer.
+- Show which textbook, precedent, statute, or public material supports an explanation.
+- Identify reasoning generated by AI rather than directly sourced material.
+- Separate confirmed information from inference.
+
+### 6.3 Controllability
+
+- Universities must be able to specify adopted textbooks and lecture policies.
+- Instructors must be able to define the standard position for a particular course.
+- Administrators must be able to restrict prohibited expressions and out-of-scope exam content.
+- Instructor review and correction must be reflected in future outputs.
+
+### 6.4 Safety
+
+- The system must not assert uncertain information as fact.
+- The system must clearly state that outputs are educational explanations, not legal advice.
+- The system must restrict support for examination misconduct.
+- The system must protect student personal information and grade information.
+
+### 6.5 Scalability
+
+- The architecture must support multiple subjects.
+- The system must manage materials by university, instructor, and academic year.
+- The service must remain stable for large-enrollment lectures.
+
+## 7. Key modules
+
+- `syllabus_parser`
+- `textbook_knowledge_base`
+- `doctrine_classifier`
+- `precedent_classifier`
+- `lecture_generator`
+- `q_and_a_tutor`
+- `exam_practice_generator`
+- `answer_evaluator`
+- `teacher_review_console`
+- `source_citation_engine`
+- `version_control_for_curriculum`
+
+## 8. Minimum viable product
+
+### Scope
+
+- One course
+- One textbook
+- One syllabus
+- Fifteen lecture sessions
+
+### Included features
+
+- Lecture summary for each session
+- Important-term explanation
+- Standard doctrine and opposing-view organization
+- Quiz generation
+- Answers to student questions
+- Source display
+- Instructor correction of answers
+
+### Excluded features
+
+- Fully automated grading
+- Automatic final grade determination
+- Complete replacement of instructors
+- Legal consultation or practical legal judgment
+
+## 9. Success criteria
+
+### Student-side outcomes
+
+- Reduced review time after lectures
+- Increased accuracy on term-understanding questions
+- Reduced waiting time for answers to routine questions
+- Easier issue organization before examinations
+
+### Teacher-side outcomes
+
+- Fewer repeated answers to the same questions
+- Support for lecture preparation
+- Visibility into points where students struggle
+- More class time for instructor-specific analysis and discussion
+
+### Institution-side outcomes
+
+- More standardized quality in foundational courses
+- Reduced quality gaps across adjunct, concurrent, and large lectures
+- Continuous management of teaching-material assets
+
+## 10. Major risks
+
+- Selecting a standard doctrine can become politically or academically contentious.
+- Excessive standardization may reduce instructor discretion and individuality.
+- Students may memorize AI answers without understanding the issues.
+- Weak source management can turn the product into a misinformation channel.
+- Law courses require continuous tracking of statutory amendments and recent precedent.
+- Economics courses require care because labeling one school as doctrine can be misleading.
+
+## 11. Design principle
+
+通説AI教授 should be built as a standard knowledge distribution infrastructure. AI should handle repetitive explanation, foundational knowledge, model answers, and review support. Human instructors should handle issue selection, critical examination, debate, evaluation, and research connection.
